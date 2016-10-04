@@ -22,11 +22,17 @@ def cmdLineArgs():
                             dest="logFile",
                             action="store",
                             help="log activity to the file")
+    argsParser.add_argument("--ping",
+                            dest="ping",
+                            action="store_true",
+                            help="""ping the drive for 15 seconds to help
+                                 identify it, if drive has an activity light""")
     argsParser.add_argument("--snapraid",
-                            dest="snapraid", action="store",
+                            dest="snapraid",
+                            action="store",
                             choices={"file", "drive"},
                             help="""run a snapraid sync after each file/drive is rebalanced.
-                            Expects snapraid to be installed""")
+                                 Expects snapraid to be installed""")
     argsParser.add_argument("-v", "--verbose",
                             dest="verbose",
                             action="store_true",
