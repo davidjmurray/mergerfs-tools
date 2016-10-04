@@ -7,19 +7,26 @@ A tool to rebalance the drives within a pool.
 
 ```
 $ mergerfs.rebalance --help
-usage: mergerfs.rebalance [-h] [--help]
-                          [-l] [--list]
-                          [--snapraid {file,drive}]
-                          storagepool
 
-A tool to rebalance the files within a storagepool so the drives have equal remaining percentages.
+usage: mergerfs_rebalance.py [-h] [-l] [--log LOGFILE] [--ping]
+                             [--snapraid {drive,file}] [-v]
+                             storagePool
+
+Rebalance the drives within a mergerfs storage pool.
 
 positional arguments:
+  storagePool           the storage pool mount point
 
 optional arguments:
-  -h, --help              show this help message and exit
-  -l, --list              list the drives in the pool with their current usage
-  --snapraid {file,drive} do a snapraid sync when each file/drive has completed it's rebalance
+  -h, --help            show this help message and exit
+  -l, --list            list drives with their usage
+  --log LOGFILE         log activity to the file
+  --ping                ping the drive for 15 seconds to help identify it, if
+                        drive has an activity light
+  --snapraid {drive,file}
+                        run a snapraid sync after each file/drive is
+                        rebalanced. Expects snapraid to be installed
+  -v, --verbose         verbose mode
 
 ```
 #### Instructions
